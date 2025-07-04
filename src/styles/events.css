@@ -1,0 +1,233 @@
+/* Events Page Styles */
+.events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.events-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-details {
+  padding: 1.5rem;
+}
+
+.event-details h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.event-description {
+  color: #666;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-info {
+  margin-bottom: 1.5rem;
+}
+
+.event-info p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.buy-ticket-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.buy-ticket-btn:hover {
+  background-color: #2980b9;
+}
+
+.buy-ticket-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-top: 2rem;
+}
+
+.error-message {
+  text-align: center;
+  color: #e74c3c;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #7f8c8d;
+}
+
+.buy-ticket-modal {
+  padding: 2rem;
+}
+
+.buy-ticket-modal h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cancel-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+.submit-btn {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #27ae60;
+}
+
+/* Payment Info Styles */
+.payment-info-section {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #3498db;
+}
+
+.payment-info-section h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.payment-details {
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+}
+
+.payment-details p {
+  margin: 0.5rem 0;
+}
+
+.payment-note {
+  font-style: italic;
+  color: #7f8c8d;
+  margin-top: 0.5rem;
+}

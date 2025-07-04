@@ -1,0 +1,23 @@
+/* .register-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+} */
+/* 
+.register-header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 20px;
+  box-sizing: border-box;
+  align-items: center;
+} */
