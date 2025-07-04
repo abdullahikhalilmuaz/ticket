@@ -17,7 +17,7 @@ export default function AdminHeader({ setToShow }) {
   const handleAdminLogout = () => {
     const admin = localStorage.getItem("tix-user");
     localStorage.removeItem("tix-user");
-    window.location.href = "/admin";
+    window.location.href = "/";
   };
 
   return (
