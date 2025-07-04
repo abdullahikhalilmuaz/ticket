@@ -18,7 +18,7 @@ const AdminTickets = () => {
       try {
         setLoading(true);
         // Include status filter in the API URL
-        const url = `http://localhost:8080/api/events/tickets/admin/${adminId}?status=${statusFilter}`;
+        const url = `https://ticket-server-e4r3.onrender.com/api/events/tickets/admin/${adminId}?status=${statusFilter}`;
 
         console.log("Fetching tickets from:", url);
 
@@ -54,7 +54,7 @@ const AdminTickets = () => {
   const handleApprove = async (ticketId) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/events/tickets/${ticketId}/approve`,
+        `https://ticket-server-e4r3.onrender.com/api/events/tickets/${ticketId}/approve`,
         {
           method: "POST",
           headers: {
@@ -91,7 +91,7 @@ const AdminTickets = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/events/tickets/${ticketId}/reject`,
+        `https://ticket-server-e4r3.onrender.com/api/events/tickets/${ticketId}/reject`,
         {
           method: "POST",
           headers: {
@@ -127,7 +127,7 @@ const AdminTickets = () => {
   const fetchTickets = async () => {
     try {
       setLoading(true);
-      const url = `http://localhost:8080/api/events/tickets/admin/${adminId}?status=${statusFilter}`;
+      const url = `https://ticket-server-e4r3.onrender.com/api/events/tickets/admin/${adminId}?status=${statusFilter}`;
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -213,7 +213,7 @@ const AdminTickets = () => {
                   <h4>Payment Proof:</h4>
                   {ticket.paymentProof ? (
                     <img
-                      src={`http://localhost:8080${ticket.paymentProof}`}
+                      src={`https://ticket-server-e4r3.onrender.com${ticket.paymentProof}`}
                       alt="Payment proof"
                       className="payment-proof-image"
                       onError={(e) => {

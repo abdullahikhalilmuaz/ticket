@@ -17,7 +17,9 @@ const Welcome = () => {
       setLoading(true);
       setError(null);
 
-      const response = await fetch("http://localhost:8080/api/events");
+      const response = await fetch(
+        "https://ticket-server-e4r3.onrender.com/api/events"
+      );
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
 
@@ -33,7 +35,7 @@ const Welcome = () => {
           venue: event.location,
           description: event.body,
           image: event.image
-            ? `http://localhost:8080${event.image}`
+            ? `https://ticket-server-e4r3.onrender.com${event.image}`
             : "https://via.placeholder.com/300",
           ticketPrice: "Contact Organizer",
           ticketType: "General Admission",
