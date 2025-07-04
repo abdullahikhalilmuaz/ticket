@@ -9,6 +9,8 @@ const Signup = ({ setFormState, setRes, res }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleLogin = () => {
     setFormState("login");
   };
@@ -19,6 +21,7 @@ const Signup = ({ setFormState, setRes, res }) => {
 
   const handleForm = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const formData = {
       firstname,
@@ -28,14 +31,21 @@ const Signup = ({ setFormState, setRes, res }) => {
       password,
     };
 
-    const res = await fetch(BASE_URL, {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify(formData),
-    });
-    const data = await res.json();
-    setRes(data);
+    try {
+      const res = await fetch(BASE_URL, {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      setRes(data);
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
+
   return (
     <div className="signup-container">
       <div className="signup-content-container">
@@ -46,6 +56,7 @@ const Signup = ({ setFormState, setRes, res }) => {
                 type="text"
                 placeholder="Firstname"
                 onChange={(e) => setFirstname(e.target.value)}
+                required
               />
             </label>
             <label>
@@ -53,6 +64,7 @@ const Signup = ({ setFormState, setRes, res }) => {
                 type="text"
                 placeholder="Lastname"
                 onChange={(e) => setLastname(e.target.value)}
+                required
               />
             </label>
             <label>
@@ -60,6 +72,7 @@ const Signup = ({ setFormState, setRes, res }) => {
                 type="text"
                 placeholder="Username"
                 onChange={(e) => setUsername(e.target.value)}
+                required
               />
             </label>
             <label>
@@ -67,6 +80,7 @@ const Signup = ({ setFormState, setRes, res }) => {
                 type="email"
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </label>
             <label>
@@ -74,6 +88,7 @@ const Signup = ({ setFormState, setRes, res }) => {
                 type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </label>
             <label>
@@ -81,10 +96,20 @@ const Signup = ({ setFormState, setRes, res }) => {
                 type="password"
                 placeholder="Confirm Password"
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                required
               />
             </label>
             <label>
-              <input type="submit" value="Signup" />
+              <input
+                type="submit"
+                value={isLoading ? "Signing up..." : "Signup"}
+                disabled={isLoading}
+              />
+              {isLoading && (
+                <div className="spinner">
+                  <div className="spinner-inner"></div>
+                </div>
+              )}
             </label>
             <label>
               <input
@@ -92,6 +117,7 @@ const Signup = ({ setFormState, setRes, res }) => {
                 value="Login ?"
                 style={{ border: "none", cursor: "pointer" }}
                 onClick={handleLogin}
+                disabled={isLoading}
               />
             </label>
           </form>
