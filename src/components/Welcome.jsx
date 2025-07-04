@@ -108,11 +108,11 @@ const Welcome = () => {
                         <p>
                           <strong>Venue:</strong> {event.venue}
                         </p>
-                        <button
+                         <button
                           className="register-btn"
                           onClick={() => (window.location.href = "/login")}
                         >
-                          Login to Buy Ticket
+                          Visit Tickets Buy Ticket
                         </button>
                       </div>
                     </div>
