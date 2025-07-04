@@ -3,7 +3,7 @@ export default function DashboardHeader({ setNavs }) {
   const saved = JSON.parse(localStorage.getItem("tix-user")).email;
   const handleLogout = () => {
     localStorage.removeItem("tix-user");
-    window.location.href = "/register";
+    window.location.href = "/";
   };
 
   const handleHome = () => {
