@@ -25,7 +25,7 @@ const AdminHome = () => {
 
       // Fetch events from your backend API
       const response = await fetch(
-        `https://ticket-server-e4r3.onrender.com/api/events/admin/${userId}`
+        `http://localhost:8080/api/events/admin/${userId}`
       );
 
       if (!response.ok) {

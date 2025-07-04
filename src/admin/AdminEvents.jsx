@@ -117,14 +117,11 @@ export default function AdminEvents() {
     }
 
     try {
-      const response = await fetch(
-        "https://ticket-server-e4r3.onrender.com/api/events",
-        {
-          method: "POST",
-          body: submitData,
-          // Don't set Content-Type header - let browser set it with boundary
-        }
-      );
+      const response = await fetch("http://localhost:8080/api/events", {
+        method: "POST",
+        body: submitData,
+        // Don't set Content-Type header - let browser set it with boundary
+      });
 
       // Check response status first
       if (!response.ok) {

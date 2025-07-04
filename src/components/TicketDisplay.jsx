@@ -16,7 +16,7 @@ const TicketDisplay = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `https://ticket-server-e4r3.onrender.com/api/events/tickets/${ticketId}`
+          `http://localhost:8080/api/events/tickets/${ticketId}`
         );
         if (!response.ok) throw new Error("Ticket not found");
         const data = await response.json();
@@ -59,7 +59,7 @@ const TicketDisplay = () => {
         </div>
         {ticket.event.image && (
           <img
-            src={`https://ticket-server-e4r3.onrender.com${ticket.event.image}`}
+            src={`http://localhost:8080${ticket.event.image}`}
             alt={ticket.event.title}
             className="ticket-event-image"
           />

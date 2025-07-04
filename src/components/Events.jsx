@@ -38,9 +38,7 @@ const Events = () => {
   const fetchEvents = async () => {
     try {
       setLoading(true);
-      const response = await fetch(
-        "https://ticket-server-e4r3.onrender.com/api/events"
-      );
+      const response = await fetch("http://localhost:8080/api/events");
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
@@ -57,7 +55,7 @@ const Events = () => {
   const fetchUserTickets = async (userId) => {
     try {
       const response = await fetch(
-        `https://ticket-server-e4r3.onrender.com/api/events/tickets/user/${userId}`
+        `http://localhost:8080/api/events/tickets/user/${userId}`
       );
       if (!response.ok) throw new Error("Failed to fetch user tickets");
       const data = await response.json();
@@ -136,7 +134,7 @@ const Events = () => {
       formData.append("paymentProof", paymentProof);
 
       const response = await fetch(
-        `https://ticket-server-e4r3.onrender.com/api/events/${selectedEvent._id}/tickets`,
+        `http://localhost:8080/api/events/${selectedEvent._id}/tickets`,
         {
           method: "POST",
           body: formData,
@@ -230,7 +228,7 @@ const Events = () => {
               <div key={event._id} className="event-card">
                 {event.image && (
                   <img
-                    src={`https://ticket-server-e4r3.onrender.com${event.image}`}
+                    src={`http://localhost:8080${event.image}`}
                     alt={event.title}
                     className="event-image"
                     onError={(e) => {
@@ -455,7 +453,7 @@ const Events = () => {
                 </div>
                 {ticketData.event.image && (
                   <img
-                    src={`https://ticket-server-e4r3.onrender.com${ticketData.event.image}`}
+                    src={`http://localhost:8080${ticketData.event.image}`}
                     alt={ticketData.event.title}
                     className="ticket-event-image"
                     onError={(e) => {

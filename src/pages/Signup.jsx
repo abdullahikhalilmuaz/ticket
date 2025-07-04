@@ -1,4 +1,4 @@
-const BASE_URL = "https://ticket-server-e4r3.onrender.com/api/signup";
+const BASE_URL = "http://localhost:8080/api/signup";
 import { useState } from "react";
 import "../styles/signup.css";
 

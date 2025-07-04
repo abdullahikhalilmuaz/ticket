@@ -1,4 +1,4 @@
-const BASE_URL = "https://ticket-server-e4r3.onrender.com/api/admin/login";
+const BASE_URL = "http://localhost:8080/api/admin/login";
 import { useState } from "react";
 
 const AdminLogin = ({ setReg, setRes }) => {
